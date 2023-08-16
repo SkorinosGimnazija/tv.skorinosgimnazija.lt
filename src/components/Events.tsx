@@ -22,7 +22,7 @@ export default function Events() {
   }
 
   if (error) {
-    return 'ERROR';
+    return 'ERROR' + JSON.stringify(error);
   }
 
   return (
