@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-200 overflow-hidden w-screen h-screen;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    @apply drop-shadow-[1px_1px_6px_rgba(0,0,0,1)];
+  }
+}
