@@ -6,6 +6,12 @@
   body {
     @apply bg-gray-200 overflow-hidden w-screen h-screen;
   }
+
+  table,
+  tr,
+  td {
+    @apply border border-black;
+  }
 }
 
 @layer utilities {
