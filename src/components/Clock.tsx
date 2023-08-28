@@ -11,7 +11,7 @@ export default function Clock() {
 
   return (
     <div className="text-right flex-1">
-      <div className="text-4xl text-shadow">{toLocalTime(time)}</div>
+      <div className="text-4xl text-shadow">+{toLocalTime(time)}</div>
       <div className="first-letter:uppercase text-shadow">{toLocalDate(time)}</div>
     </div>
   );
