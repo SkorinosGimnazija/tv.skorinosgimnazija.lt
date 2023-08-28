@@ -1,41 +1,36 @@
-import { useEffect, useRef } from 'react';
-import useSWR from 'swr';
+// import useSWR from 'swr';
 
 export default function Events() {
-  const test = useRef(0);
-
-  const { data, error, isLoading, isValidating } = useSWR(
-    // `${import.meta.env.VITE_API_URL}/events/public/today`,
-    `${import.meta.env.VITE_API_URL}/events/public/-10`,
-    {
-      // refreshInterval: 60 * 60 * 1000, // 1h,
-      refreshInterval: 3000,
-    }
-  );
-
-  useEffect(() => {
-    test.current = test.current + 1;
-  });
-
-  if (isLoading || isValidating) {
-    return 'LOADING';
-  }
-
-  if (error) {
-    return 'ERROR' + JSON.stringify(error);
-  }
-
   return (
-    <>
-      {test.current}
-
-      {data?.map((x: any) => {
-        return (
-          <div key={x.id}>
-            {x.title} ~~~~~ {x.startDate ?? x.startDateTime}-{x.endDate ?? x.endDateTime}
-          </div>
-        );
-      })}
-    </>
+    <div className="text-2xl flex gap-8">
+      <p>Renginis 1</p>
+      <p>Renginis 2</p>
+      <p>Renginis 3</p>
+      <p>Renginis 4</p>
+      <p>Renginis 5</p>
+      <p>Renginis 6</p>
+      <p>Renginis 7</p>
+    </div>
   );
+  // TODO
+
+  // const { data, error } = useSWR(`/events/public/today`, {
+  //   refreshInterval: 5 * 60 * 1000, // 5min,
+  // });
+
+  // if (error) {
+  //   return null;
+  // }
+
+  // return (
+  //   <>
+  //     {data?.map((x: any) => {
+  //       return (
+  //         <div key={x.id}>
+  //           {x.title} ~~~~~ {x.startDate ?? x.startDateTime}-{x.endDate ?? x.endDateTime}
+  //         </div>
+  //       );
+  //     })}
+  //   </>
+  // );
 }

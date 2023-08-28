@@ -4,13 +4,31 @@
 
 @layer base {
   body {
-    @apply bg-gray-200 overflow-hidden w-screen h-screen;
+    @apply bg-gray-100 overflow-hidden w-screen h-screen;
   }
 
-  table,
-  tr,
-  td {
-    @apply border border-black;
+  tbody tr:nth-child(even) {
+    @apply bg-gray-200;
+  }
+
+  tbody tr:nth-child(odd) {
+    @apply bg-white;
+  }
+
+  table {
+    @apply text-center;
+  }
+
+  thead th {
+    @apply bg-gray-300;
+  }
+
+  th:first-of-type {
+    border-top-left-radius: 10px;
+  }
+
+  th:last-of-type {
+    border-top-right-radius: 10px;
   }
 }
 
