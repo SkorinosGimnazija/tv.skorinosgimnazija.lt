@@ -83,11 +83,7 @@ export default function FakeTimetable() {
         <tr>
           <th className="w-6"></th>
           {normalized.rooms.map((room) => {
-            return (
-              <th key={room} className="text-xl">
-                {room}
-              </th>
-            );
+            return <th key={room}>{room}</th>;
           })}
         </tr>
       </thead>
