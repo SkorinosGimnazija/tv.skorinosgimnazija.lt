@@ -8,9 +8,10 @@ export default function App() {
       <img className="absolute -z-50" />
       <Header />
       <main className="p-4">
-        <div className="grid grid-cols-5 grid-rows-2">
+        {/* <div className="grid grid-cols-5 grid-rows-2"> */}
+        <div className="grid">
           <FakeTimetable />
-          <div className="row-span-2 flex flex-col justify-center items-center text-3xl">
+          {/* <div className="row-span-2 flex flex-col justify-center items-center text-3xl">
             <p>1. 8:00 - 9:45</p>
             <p>2. 8:00 - 9:45</p>
             <p>3. 8:00 - 9:45</p>
@@ -18,7 +19,7 @@ export default function App() {
             <p>5. 8:00 - 9:45</p>
             <p>6. 8:00 - 9:45</p>
             <p>7. 8:00 - 9:45</p>
-          </div>
+          </div> */}
           <FakeTimetable />
         </div>
         <Events />

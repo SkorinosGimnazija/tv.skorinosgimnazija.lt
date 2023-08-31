@@ -78,7 +78,7 @@ export default function FakeTimetable() {
   }
 
   return (
-    <table className="mb-4 w-full col-span-4 table-fixed? text-xl">
+    <table className="mb-4 w-full col-span-4 table-fixed text-2xl">
       <thead>
         <tr>
           <th className="w-6"></th>
