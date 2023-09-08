@@ -1,4 +1,4 @@
-import bg from './assets/hero.jpg';
+import bg from './assets/hero2.jpg';
 import Announcement from './components/Announcement';
 import Events from './components/Events';
 import FakeTimetable from './components/FakeTimetable';
