@@ -1,28 +1,22 @@
+import bg from './assets/hero.jpg';
+import Announcement from './components/Announcement';
 import Events from './components/Events';
 import FakeTimetable from './components/FakeTimetable';
-import Header from './components/Header';
 
 export default function App() {
   return (
-    <div className="relative">
-      <img className="absolute -z-50" />
-      <Header />
-      <main className="p-4">
-        {/* <div className="grid grid-cols-5 grid-rows-2"> */}
-        <div className="grid">
-          <FakeTimetable />
-          {/* <div className="row-span-2 flex flex-col justify-center items-center text-3xl">
-            <p>1. 8:00 - 9:45</p>
-            <p>2. 8:00 - 9:45</p>
-            <p>3. 8:00 - 9:45</p>
-            <p>4. 8:00 - 9:45</p>
-            <p>5. 8:00 - 9:45</p>
-            <p>6. 8:00 - 9:45</p>
-            <p>7. 8:00 - 9:45</p>
-          </div> */}
+    <div className="relative w-screen h-screen overflow-hidden">
+      <img className="absolute -z-50 object-cover w-full h-full" src={bg} />
+      <main className="p-8 grid grid-cols-12 grid-rows-6 w-full h-full">
+        <div className="row-span-2 col-span-5">
+          <Announcement />
+        </div>
+        <div className="col-start-9 row-span-full col-span-4">
           <FakeTimetable />
         </div>
-        <Events />
+        <div className="row-start-5 row-span-2 col-span-5">
+          <Events />
+        </div>
       </main>
     </div>
   );

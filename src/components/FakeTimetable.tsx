@@ -1,12 +1,32 @@
 import { useMemo } from 'react';
 import useSWR from 'swr';
 
+const sampleClass2 = [
+  'Lietuvių kalba',
+  'Matematika',
+  'Keramika',
+  'Baltarusių kalba',
+  'Fizinis ugdymas',
+  'Dailė ir technologijos',
+  'Anglų kalba',
+  'Rusų kalba',
+  'Dailė',
+  'Fizika',
+  'Istorija',
+  'Chemija',
+  'Biologija',
+  'Pasaulio pažinimas',
+  'Geografija',
+  'Etika',
+  '',
+];
+
 export default function FakeTimetable() {
   const { data, error, isLoading, isValidating } = useSWR<TimetableDto[]>(
     `/timetable/public/today`,
     {
       // refreshInterval: 1 * 60 * 1000, // 1min
-      refreshInterval: 5000, // 1min,
+      refreshInterval: 335000, // 1min,
     }
   );
 
@@ -20,10 +40,18 @@ export default function FakeTimetable() {
       '2 klasė',
       '3 klasė',
       '4 klasė',
-      '5 klasė',
-      '6 klasė',
-      '7 klasė',
-      '8 klasė',
+      '5a klasė',
+      '5b klasė',
+      '6a klasė',
+      '6b klasė',
+      '7a klasė',
+      '7b klasė',
+      '8a klasė',
+      '8b klasė',
+      'Ig klasė',
+      'IIg klasė',
+      'IIIg klasė',
+      'IVg klasė',
     ];
 
     const sampleClass = [
@@ -78,28 +106,18 @@ export default function FakeTimetable() {
   }
 
   return (
-    <table className="mb-4 w-full col-span-4 table-fixed text-2xl">
-      <thead>
-        <tr>
-          <th className="w-6"></th>
-          {normalized.rooms.map((room) => {
-            return <th key={room}>{room}</th>;
-          })}
-        </tr>
-      </thead>
-
-      <tbody>
-        {normalized.times.map((time) => {
-          return (
-            <tr key={time}>
-              <td>{time}.</td>
-              {normalized.rooms.map((room) => {
-                return <td key={room}>{normalized.data[room]?.[time]}</td>;
-              })}
-            </tr>
-          );
-        })}
-      </tbody>
-    </table>
+    <div className="grid grid-cols-2 gap-2 text-3xl text-center">
+      <p className="bg-background shadow-lg rounded-lg col-span-2 font-semibold p-2 border-b-4 border-b-yellow-300">
+        5 Pamoka 10:00 - 10:45
+      </p>
+      {normalized.rooms.map((x) => {
+        return (
+          <div className="bg-background shadow-lg rounded-lg" key={x}>
+            <p className="font-bold">{x}</p>
+            <p>{sampleClass2[Math.floor(Math.random() * sampleClass2.length)]}</p>
+          </div>
+        );
+      })}
+    </div>
   );
 }
