@@ -18,7 +18,7 @@ const sampleClass2 = [
   'Pasaulio pažinimas',
   'Geografija',
   'Etika',
-  '',
+  '-',
 ];
 
 export default function FakeTimetable() {
@@ -71,7 +71,7 @@ export default function FakeTimetable() {
       'Pasaulio pažinimas',
       'Geografija',
       'Etika',
-      '',
+      '-',
     ];
 
     const timeStart = 1;
@@ -106,13 +106,13 @@ export default function FakeTimetable() {
   }
 
   return (
-    <div className="grid grid-cols-2 gap-2 text-3xl text-center">
-      <p className="bg-background shadow-lg rounded-lg col-span-2 font-semibold p-2 border-b-4 border-b-yellow-300">
+    <div className="grid grid-cols-2 gap-3 text-4xl text-center">
+      <p className="bg-background shadow-lg rounded-lg col-span-2 font-extrabold p-2 border-b-4 border-b-yellow-300">
         5 Pamoka 10:00 - 10:45
       </p>
       {normalized.rooms.map((x) => {
         return (
-          <div className="bg-background shadow-lg rounded-lg" key={x}>
+          <div className="bg-background shadow-lg rounded-lg p-1" key={x}>
             <p className="font-bold">{x}</p>
             <p>{sampleClass2[Math.floor(Math.random() * sampleClass2.length)]}</p>
           </div>
