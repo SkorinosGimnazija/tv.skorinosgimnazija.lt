@@ -2,7 +2,6 @@ import bg from './assets/hero2.jpg';
 import Announcement from './components/Announcement';
 import Events from './components/Events';
 import FakeTimetable from './components/FakeTimetable';
-import Timetable from './components/Timetable';
 
 export default function App() {
   return (
