@@ -9,7 +9,7 @@ export default function Events() {
       </div>
 
       <div className="text-3xl bg-white bg-opacity-90 shadow-lg rounded-lg p-2 border-l-8 border-l-green-500">
-        <p className="text-ellipsis whitespace-nowrap overflow-hidden">
+        <p className="line-clamp-1">
           Netradicinė technologijų-biologijos pamoka-paskaita 7 A kl. „Valgymo sutrikimai:
           psichologinė perspektyva“ (Vilniaus visuomenės sveikatos biuro mobiliosios komandos
           iniciatyva)
@@ -18,7 +18,7 @@ export default function Events() {
       </div>
 
       <div className="text-4xl bg-white bg-opacity-90 shadow-lg rounded-lg p-2 border-l-8 border-l-green-500">
-        <p>Gimnazijos tarybos posėdis</p>
+        <p className="line-clamp-1">Gimnazijos tarybos posėdis</p>
         <p className="text-3xl">12:45</p>
       </div>
     </div>

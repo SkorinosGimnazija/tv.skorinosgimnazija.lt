@@ -1,67 +1,27 @@
-import { useMemo } from 'react';
 import useSWR from 'swr';
 
 export default function Timetable() {
-  const { data, error } = useSWR<TimetableDto[]>(`/timetable/public/today`, {
+  const { data, error } = useSWR<TimetableDto>(`/timetable/public/today`, {
     refreshInterval: 1 * 60 * 1000, // 1min
   });
 
-  const normalized = useMemo(() => {
-    if (!data) {
-      return null;
-    }
-
-    const rooms = [...new Set(data.map((x) => x.room.name))];
-    const timeStart = Math.min(...data.map((x) => x.time.number));
-    const timeEnd = Math.max(...data.map((x) => x.time.number));
-    const times: number[] = [];
-    const classes: { [key: string]: { [key: number]: string | undefined } } = {};
-
-    for (const classData of data) {
-      classes[classData.room.name] = {
-        ...classes[classData.room.name],
-        [classData.time.number]: classData.className,
-      };
-    }
-
-    for (let i = timeStart; i <= timeEnd; i++) {
-      times.push(i);
-    }
-
-    return { rooms, times, data: classes };
-  }, [data]);
-
-  if (error && !normalized) {
-    return 'Serverio klaida';
-  }
-
-  if (!normalized) {
-    return ''; //TODO loading indicator ?;
+  if (error || !data) {
+    return null;
   }
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th></th>
-          {normalized.rooms.map((room) => {
-            return <th key={room}>{room}</th>;
-          })}
-        </tr>
-      </thead>
-
-      <tbody>
-        {normalized.times.map((time) => {
-          return (
-            <tr key={time}>
-              <td>{time}.</td>
-              {normalized.rooms.map((room) => {
-                return <td key={room}>{normalized.data[room]?.[time]}</td>;
-              })}
-            </tr>
-          );
-        })}
-      </tbody>
-    </table>
+    <div className="grid grid-cols-2 gap-3 text-4xl text-center">
+      <p className="bg-background shadow-lg rounded-lg col-span-2 font-extrabold p-2 border-b-4 border-b-yellow-300">
+        {data.classtime.number} Pamoka {data.classtime.startTime} - {data.classtime.endTime}
+      </p>
+      {data.timetable.map((x) => {
+        return (
+          <div key={x.id} className="bg-background shadow-lg rounded-lg p-1">
+            <p className="font-bold">{x.classRoom}</p>
+            <p>{x.className}</p>
+          </div>
+        );
+      })}
+    </div>
   );
 }
