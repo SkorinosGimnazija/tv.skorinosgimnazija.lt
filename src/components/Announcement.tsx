@@ -11,11 +11,11 @@ export default function Announcement() {
   }
 
   return (
-    <section className="bg-background shadow-lg rounded-xl p-4 relative">
+    <section className="bg-background shadow-lg rounded-xl p-4 relative backdrop-blur-sm">
       <span className="absolute bg-orange-500 w-6 h-6 rounded-full top-0 right-0 animate-ping"></span>
       {data.map((x) => {
         return (
-          <p className="text-4xl text-center" key={x.id}>
+          <p className="text-5xl text-center" key={x.id}>
             {x.announcement}
           </p>
         );
