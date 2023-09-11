@@ -3,13 +3,13 @@
 export default function Events() {
   return (
     <div className="flex flex-col gap-2 justify-end h-full">
-      <div className="text-3xl bg-background shadow-lg rounded-lg p-2 border-l-8 border-l-green-500">
+      <div className="text-2xl bg-background shadow-lg rounded-lg p-2 border-l-8 border-l-green-500">
         <p>Matematikos PUPP (II srautas)</p>
-        <p className="text-2xl">Liepos 12 d. - Liepos 16 d.</p>
+        <p className="text-xl">Liepos 12 d. - Liepos 16 d.</p>
       </div>
 
       <div className="text-3xl bg-white bg-opacity-90 shadow-lg rounded-lg p-2 border-l-8 border-l-green-500">
-        <p className="line-clamp-2">
+        <p className="line-clamp-1">
           Netradicinė technologijų-biologijos pamoka-paskaita 7 A kl. „Valgymo sutrikimai:
           psichologinė perspektyva“ (Vilniaus visuomenės sveikatos biuro mobiliosios komandos
           iniciatyva)
@@ -17,24 +17,9 @@ export default function Events() {
         <p className="text-2xl">11:45</p>
       </div>
 
-      <div className="text-3xl bg-white bg-opacity-90 shadow-lg rounded-lg p-2 border-l-8 border-l-green-500">
-        <p className="line-clamp-2">Gimnazijos tarybos posėdis</p>
-        <p className="text-2xl">12:45</p>
-      </div>
-
-      <div className="text-3xl bg-white bg-opacity-90 shadow-lg rounded-lg p-2 border-l-8 border-l-green-500">
-        <p className="line-clamp-2">
-          Dalyvavimas nacionalinėje „Sveikatiados“ programoje. Konkursas „Sveikatiados“ pietų
-          lėkštė“. Dalyvauja PUG, 1-8, I-IV g kl. (visą mėnesį)
-        </p>
-      </div>
-
-      <div className="text-3xl bg-white bg-opacity-90 shadow-lg rounded-lg p-2 border-l-8 border-l-green-500">
-        <p className="line-clamp-2">
-          Dalyvavimas respublikiniame projekte „Solidarumo bėgimas“. Dalyvauja gimnazijos
-          bendruomenė
-        </p>
-        <p className="text-2xl">14:45</p>
+      <div className="text-4xl bg-white bg-opacity-90 shadow-lg rounded-lg p-2 border-l-8 border-l-green-500">
+        <p className="line-clamp-1">Gimnazijos tarybos posėdis</p>
+        <p className="text-3xl">12:45</p>
       </div>
     </div>
   );

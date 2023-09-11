@@ -106,17 +106,15 @@ export default function FakeTimetable() {
   }
 
   return (
-    <div className="grid grid-cols-2 gap-2 text-5xl text-center">
+    <div className="grid grid-cols-2 gap-3 text-4xl text-center">
       <p className="bg-background shadow-lg rounded-lg col-span-2 font-extrabold p-2 border-b-4 border-b-yellow-300">
         5 Pamoka 10:00 - 10:45
       </p>
       {normalized.rooms.map((x) => {
         return (
-          <div className="bg-background shadow-lg rounded-lg p-1 col-span-2 inline-block" key={x}>
-            <p>
-              <span className="font-bold">{x}</span>:{' '}
-              {sampleClass2[Math.floor(Math.random() * sampleClass2.length)]}
-            </p>
+          <div className="bg-background shadow-lg rounded-lg p-1" key={x}>
+            <p className="font-bold">{x}</p>
+            <p>{sampleClass2[Math.floor(Math.random() * sampleClass2.length)]}</p>
           </div>
         );
       })}
