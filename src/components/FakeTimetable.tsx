@@ -113,7 +113,7 @@ export default function FakeTimetable() {
       {normalized.rooms.map((x) => {
         return (
           <div
-            className="bg-background shadow-lg rounded-lg p-[0.15rem] col-span-2 text-[2.5rem]"
+            className="bg-background shadow-lg rounded-lg p-[0.15rem] col-span-2 text-[2.75rem]"
             key={x}
           >
             <p>
