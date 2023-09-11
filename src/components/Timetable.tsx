@@ -35,7 +35,7 @@ export default function Timetable() {
         return (
           <div
             key={x.id}
-            className="bg-background shadow-lg mb-2 rounded-lg p-[0.15rem] text-[2.75rem] whitespace-nowrap flex gap-2"
+            className="bg-background shadow-lg mb-2 rounded-lg px-3 py-[0.15rem] text-[2.75rem] whitespace-nowrap flex gap-2"
           >
             <span className="font-bold">
               {x.classRoom}
