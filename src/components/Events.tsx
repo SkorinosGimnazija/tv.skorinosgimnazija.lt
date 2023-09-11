@@ -1,47 +1,30 @@
-// import useSWR from 'swr';
+import useSWR from 'swr';
+import { minuteToMs, formatDateTime } from '../utils/lib';
+
+const MAX_EVENTS_TO_SHOW = 4;
 
 export default function Events() {
+  const { data, error } = useSWR<EventDto[]>(`/events/public/today`, {
+    refreshInterval: minuteToMs(60),
+  });
+
+  if (error || !data || data.length === 0) {
+    return null;
+  }
+
   return (
-    <div className="flex flex-col gap-2 justify-end h-full">
-      <div className="text-2xl bg-background shadow-lg rounded-lg p-2 border-l-8 border-l-green-500">
-        <p>Matematikos PUPP (II srautas)</p>
-        <p className="text-xl">Liepos 12 d. - Liepos 16 d.</p>
-      </div>
-
-      <div className="text-3xl bg-white bg-opacity-90 shadow-lg rounded-lg p-2 border-l-8 border-l-green-500">
-        <p className="line-clamp-1">
-          Netradicinė technologijų-biologijos pamoka-paskaita 7 A kl. „Valgymo sutrikimai:
-          psichologinė perspektyva“ (Vilniaus visuomenės sveikatos biuro mobiliosios komandos
-          iniciatyva)
-        </p>
-        <p className="text-2xl">11:45</p>
-      </div>
-
-      <div className="text-4xl bg-white bg-opacity-90 shadow-lg rounded-lg p-2 border-l-8 border-l-green-500">
-        <p className="line-clamp-1">Gimnazijos tarybos posėdis</p>
-        <p className="text-3xl">12:45</p>
-      </div>
-    </div>
+    <section className="flex flex-col gap-2 justify-end h-full">
+      {data.slice(0, MAX_EVENTS_TO_SHOW).map((x) => {
+        return (
+          <div
+            className="text-3xl bg-background shadow-lg rounded-lg p-2 border-l-8 border-l-green-500  backdrop-blur-sm"
+            key={x.id}
+          >
+            <p className="line-clamp-2">{x.title}</p>
+            <p className="text-2xl">{formatDateTime(x.startDate, x.startDateTime, x.endDate)}</p>
+          </div>
+        );
+      })}
+    </section>
   );
-  // TODO
-
-  // const { data, error } = useSWR(`/events/public/today`, {
-  //   refreshInterval: 5 * 60 * 1000, // 5min,
-  // });
-
-  // if (error) {
-  //   return null;
-  // }
-
-  // return (
-  //   <>
-  //     {data?.map((x: any) => {
-  //       return (
-  //         <div key={x.id}>
-  //           {x.title} ~~~~~ {x.startDate ?? x.startDateTime}-{x.endDate ?? x.endDateTime}
-  //         </div>
-  //       );
-  //     })}
-  //   </>
-  // );
 }

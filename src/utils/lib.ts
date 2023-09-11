@@ -1,7 +1,6 @@
 const ltDateFormat = new Intl.DateTimeFormat('lt', {
   month: 'long',
   day: 'numeric',
-  weekday: 'long',
   timeZone: 'Europe/Vilnius',
 });
 
@@ -11,10 +10,27 @@ const ltTimeFormat = new Intl.DateTimeFormat('lt', {
   timeZone: 'Europe/Vilnius',
 });
 
-export const toLocalDate = (date: number) => {
-  return ltDateFormat.format(date);
+export const toLocalDate = (date: string) => {
+  const formatted = ltDateFormat.format(new Date(date));
+  return formatted[0].toUpperCase() + formatted.slice(1);
 };
 
-export const toLocalTime = (date: number) => {
-  return ltTimeFormat.format(date);
+export const toLocalTime = (date: string) => {
+  return ltTimeFormat.format(new Date(date));
+};
+
+export const formatDateTime = (startDate?: string, startDateTime?: string, endDate?: string) => {
+  if (startDate != null && endDate != null) {
+    if (startDate === endDate) {
+      return toLocalDate(startDate);
+    }
+
+    return toLocalDate(startDate) + ' - ' + toLocalDate(endDate);
+  }
+
+  return toLocalTime(startDateTime!);
+};
+
+export const minuteToMs = (min: number) => {
+  return min * 60 * 1000;
 };
