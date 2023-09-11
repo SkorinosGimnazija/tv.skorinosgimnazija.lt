@@ -4,11 +4,11 @@ import { minuteToMs, formatDateTime } from '../utils/lib';
 const MAX_EVENTS_TO_SHOW = 4;
 
 export default function Events() {
-  const { data, error } = useSWR<EventDto[]>(`/events/public/today`, {
+  const { data } = useSWR<EventDto[]>(`/events/public/today`, {
     refreshInterval: minuteToMs(60),
   });
 
-  if (error || !data || data.length === 0) {
+  if (!data || data.length === 0) {
     return null;
   }
 

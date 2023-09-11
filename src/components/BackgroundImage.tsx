@@ -7,12 +7,12 @@ export default function BackgroundImage() {
   const img2 = useRef<HTMLImageElement>(null);
   const visibleImg = useRef<HTMLImageElement>();
 
-  const { data, error } = useSWR<AnnouncementDto[]>(`/school/public/random-image`, {
+  const { data } = useSWR<AnnouncementDto[]>(`/school/public/random-image`, {
     refreshInterval: minuteToMs(45),
   });
 
   useEffect(() => {
-    if (img1.current == null || img2.current == null || data == null || error) {
+    if (img1.current == null || img2.current == null || !data) {
       return;
     }
 
@@ -23,7 +23,7 @@ export default function BackgroundImage() {
     }
 
     visibleImg.current.src = import.meta.env.VITE_STATIC_URL + '/' + data;
-  }, [data, error]);
+  }, [data]);
 
   const onImageLoad = () => {
     img1.current!.classList.toggle('opacity-0');

@@ -2,11 +2,11 @@ import useSWR from 'swr';
 import { minuteToMs } from '../utils/lib';
 
 export default function Announcement() {
-  const { data, error } = useSWR<AnnouncementDto[]>(`/school/public/announcements`, {
+  const { data } = useSWR<AnnouncementDto[]>(`/school/public/announcements`, {
     refreshInterval: minuteToMs(5),
   });
 
-  if (error || !data || data.length === 0) {
+  if (!data || data.length === 0) {
     return null;
   }
 

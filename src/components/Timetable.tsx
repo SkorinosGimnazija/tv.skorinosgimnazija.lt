@@ -2,11 +2,11 @@ import useSWR from 'swr';
 import { minuteToMs } from '../utils/lib';
 
 export default function Timetable() {
-  const { data, error } = useSWR<TimetableDto>(`/timetable/public/today`, {
+  const { data } = useSWR<TimetableDto>(`/timetable/public/today`, {
     refreshInterval: minuteToMs(1),
   });
 
-  if (error || !data) {
+  if (!data) {
     return null;
   }
 
@@ -19,7 +19,7 @@ export default function Timetable() {
         return (
           <p
             key={x.id}
-            className="bg-background shadow-lg my-2 rounded-lg p-[0.15rem] text-[2.75rem] text-ellipsis overflow-hidden whitespace-nowrap"
+            className="bg-background shadow-lg mb-2 rounded-lg p-[0.15rem] text-[2.75rem] text-ellipsis overflow-hidden whitespace-nowrap"
           >
             <span className="font-bold">{x.classRoom}</span>
             {': '}
