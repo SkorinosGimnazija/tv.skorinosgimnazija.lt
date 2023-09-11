@@ -11,22 +11,20 @@ export default function Timetable() {
   }
 
   return (
-    <section className="grid grid-cols-2 gap-2 text-5xl text-center">
-      <p className="bg-background shadow-lg rounded-lg col-span-2 font-extrabold p-2 border-b-4 border-b-yellow-300 backdrop-blur-sm">
+    <section className="text-5xl text-center">
+      <p className="bg-background shadow-lg rounded-lg font-extrabold p-2 border-b-4 border-b-yellow-300 backdrop-blur-sm mb-2">
         {data.classtime.number} Pamoka {data.classtime.startTime} - {data.classtime.endTime}
       </p>
       {data.timetable.map((x) => {
         return (
-          <div
+          <p
             key={x.id}
-            className="bg-background shadow-lg rounded-lg p-[0.15rem] col-span-2 text-[2.75rem] backdrop-blur-sm"
+            className="bg-background shadow-lg my-2 rounded-lg p-[0.15rem] text-[2.75rem] backdrop-blur-sm text-ellipsis overflow-hidden whitespace-nowrap"
           >
-            <p className="text-ellipsis overflow-hidden whitespace-nowrap">
-              <span className="font-bold">{x.classRoom}</span>
-              {': '}
-              {x.className}
-            </p>
-          </div>
+            <span className="font-bold">{x.classRoom}</span>
+            {': '}
+            {x.className}
+          </p>
         );
       })}
     </section>
