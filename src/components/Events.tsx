@@ -13,11 +13,11 @@ export default function Events() {
   }
 
   return (
-    <section className="flex flex-col gap-2 justify-end h-full">
+    <section className="flex flex-col gap-2 justify-end h-full relative">
       {data.slice(0, MAX_EVENTS_TO_SHOW).map((x) => {
         return (
           <div
-            className="text-3xl bg-background shadow-lg rounded-lg p-2 border-l-8 border-l-green-500  backdrop-blur-sm"
+            className="text-3xl bg-background shadow-lg rounded-lg p-2 border-l-8 border-l-green-500"
             key={x.id}
           >
             <p className="line-clamp-2">{x.title}</p>
