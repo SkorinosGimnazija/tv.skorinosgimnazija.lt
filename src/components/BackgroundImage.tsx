@@ -35,12 +35,12 @@ export default function BackgroundImage() {
       <img
         ref={img1}
         onLoad={onImageLoad}
-        className="opacity-0 fixed object-cover w-screen h-screen transition-opacity duration-1000"
+        className="opacity-0 absolute object-cover w-screen h-screen transition-opacity duration-1000"
       />
       <img
         ref={img2}
         onLoad={onImageLoad}
-        className="fixed object-cover w-screen h-screen transition-opacity duration-1000"
+        className="absolute object-cover w-screen h-screen transition-opacity duration-1000"
       />
     </>
   );
