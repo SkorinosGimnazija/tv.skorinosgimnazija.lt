@@ -27,7 +27,6 @@ export default function Events() {
           Dalyvavimas nacionalinėje „Sveikatiados“ programoje. Konkursas „Sveikatiados“ pietų
           lėkštė“. Dalyvauja PUG, 1-8, I-IV g kl. (visą mėnesį)
         </p>
-        <p className="text-2xl">13:45</p>
       </div>
 
       <div className="text-3xl bg-white bg-opacity-90 shadow-lg rounded-lg p-2 border-l-8 border-l-green-500">
