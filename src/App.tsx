@@ -1,7 +1,7 @@
 import bg from './assets/hero2.jpg';
 import Announcement from './components/Announcement';
 import Events from './components/Events';
-import FakeTimetable from './components/FakeTimetable';
+import Timetable from './components/Timetable';
 
 export default function App() {
   return (
@@ -15,8 +15,7 @@ export default function App() {
           <Announcement />
         </div>
         <div className="col-start-9 row-span-full col-span-4">
-          <FakeTimetable />
-          {/* <Timetable /> */}
+          <Timetable />
         </div>
         <div className="row-start-5 row-span-2 col-span-5">
           <Events />
