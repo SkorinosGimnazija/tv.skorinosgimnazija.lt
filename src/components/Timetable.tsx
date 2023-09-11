@@ -21,7 +21,7 @@ export default function Timetable() {
             key={x.id}
             className="bg-background shadow-lg rounded-lg p-[0.15rem] col-span-2 text-[2.75rem] backdrop-blur-sm"
           >
-            <p>
+            <p className="text-ellipsis overflow-hidden whitespace-nowrap">
               <span className="font-bold">{x.classRoom}</span>
               {': '}
               {x.className}

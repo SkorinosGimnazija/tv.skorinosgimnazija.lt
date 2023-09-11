@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react';
 import useSWR from 'swr';
-import bg from '../assets/hero.jpg';
 import { minuteToMs } from '../utils/lib';
 
 export default function BackgroundImage() {
@@ -9,7 +8,7 @@ export default function BackgroundImage() {
   const visibleImg = useRef<HTMLImageElement>();
 
   const { data, error } = useSWR<AnnouncementDto[]>(`/school/public/random-image`, {
-    refreshInterval: minuteToMs(30),
+    refreshInterval: minuteToMs(45),
   });
 
   useEffect(() => {
@@ -24,22 +23,24 @@ export default function BackgroundImage() {
     }
 
     visibleImg.current.src = import.meta.env.VITE_STATIC_URL + '/' + data;
-    visibleImg.current.onload = () => {
-      img1.current!.classList.toggle('opacity-0');
-      img2.current!.classList.toggle('opacity-0');
-    };
   }, [data, error]);
+
+  const onImageLoad = () => {
+    img1.current!.classList.toggle('opacity-0');
+    img2.current!.classList.toggle('opacity-0');
+  };
 
   return (
     <>
       <img
         ref={img1}
+        onLoad={onImageLoad}
         className="opacity-0 fixed object-cover w-screen h-screen transition-opacity duration-1000"
       />
       <img
         ref={img2}
+        onLoad={onImageLoad}
         className="fixed object-cover w-screen h-screen transition-opacity duration-1000"
-        src={bg}
       />
     </>
   );
