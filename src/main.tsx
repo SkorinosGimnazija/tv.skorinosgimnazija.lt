@@ -10,6 +10,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
       value={{
         fetcher: (resource, init) =>
           fetch(import.meta.env.VITE_API_URL + resource, init).then((res) => res.json()),
+        refreshWhenHidden: true,
       }}
     >
       <App />

@@ -5,7 +5,7 @@ import { minuteToMs } from '../utils/lib';
 export default function Timetable() {
   const refs = useRef<(HTMLSpanElement | null)[]>([]);
   const { data } = useSWR<TimetableDto>(`/timetable/public/today`, {
-    refreshInterval: minuteToMs(10),
+    refreshInterval: minuteToMs(1),
   });
 
   useEffect(() => {
