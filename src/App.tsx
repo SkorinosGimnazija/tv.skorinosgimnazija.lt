@@ -8,7 +8,7 @@ export default function App() {
   return (
     <div
       style={{ backgroundImage: `url(${defaultBg})` }}
-      className="h-screen w-screen bg-gray-300 bg-center bg-cover bg-no-repeat"
+      className="h-screen w-screen bg-center bg-cover bg-no-repeat"
     >
       <BackgroundImage />
       <main className="p-8 grid grid-cols-12 grid-rows-6 w-full h-full">

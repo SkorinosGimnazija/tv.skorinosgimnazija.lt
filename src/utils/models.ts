@@ -5,7 +5,7 @@ interface TimetableDto {
 
 interface AnnouncementDto {
   id: number;
-  announcement: string;
+  title: string;
 }
 
 interface EventDto {
@@ -15,4 +15,8 @@ interface EventDto {
   endDate?: string;
   startDateTime?: string;
   endDateTime?: string;
+}
+
+interface RandomImageDto {
+  url: string;
 }

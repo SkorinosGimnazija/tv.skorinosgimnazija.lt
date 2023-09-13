@@ -14,7 +14,7 @@ export default function Timetable() {
         continue;
       }
 
-      if (element.clientWidth < element.scrollWidth) {
+      if (element.clientWidth > element.parentElement!.clientWidth) {
         element.classList.add('animate-text-overflow');
       }
     }
@@ -28,21 +28,20 @@ export default function Timetable() {
 
   return (
     <section className="text-5xl relative">
-      <p className="bg-background text-center shadow-lg rounded-lg font-extrabold p-2 border-b-4 border-b-yellow-300 mb-2">
+      <p className="bg-background text-center shadow-lg rounded-lg font-extrabold p-2 mb-2">
         {data.classtime.number} Pamoka {data.classtime.startTime} - {data.classtime.endTime}
       </p>
       {data.timetable.map((x) => {
         return (
           <div
             key={x.id}
-            className="bg-background shadow-lg mb-2 rounded-lg px-3 py-[0.15rem] text-[2.75rem] whitespace-nowrap flex gap-2"
+            className="bg-background shadow-lg mb-2 rounded-lg px-3 py-1 text-[2.75rem] whitespace-nowrap flex gap-2"
           >
-            <span className="font-bold">
-              {x.classRoom}
-              {':  '}
-            </span>
+            <span className="font-bold">{x.classRoom}</span>
             <div className="overflow-hidden">
-              <p ref={(e) => refs.current.push(e)}>{x.className}</p>
+              <span className="inline-block" ref={(e) => refs.current.push(e)}>
+                {x.className}
+              </span>
             </div>
           </div>
         );

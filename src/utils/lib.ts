@@ -22,7 +22,8 @@ export const toLocalTime = (date: string) => {
 export const formatDateTime = (startDate?: string, startDateTime?: string, endDate?: string) => {
   if (startDate != null && endDate != null) {
     if (startDate === endDate) {
-      return toLocalDate(startDate);
+      // return toLocalDate(startDate);
+      return null;
     }
 
     return toLocalDate(startDate) + ' - ' + toLocalDate(endDate);

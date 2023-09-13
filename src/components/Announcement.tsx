@@ -3,7 +3,7 @@ import { minuteToMs } from '../utils/lib';
 
 export default function Announcement() {
   const { data } = useSWR<AnnouncementDto[]>(`/school/public/announcements`, {
-    refreshInterval: minuteToMs(5),
+    refreshInterval: minuteToMs(3),
   });
 
   if (!data || data.length === 0) {
@@ -11,12 +11,11 @@ export default function Announcement() {
   }
 
   return (
-    <section className="bg-background shadow-lg rounded-xl p-4 relative">
-      <span className="absolute bg-orange-500 w-6 h-6 rounded-full top-0 right-0 animate-ping"></span>
+    <section className="bg-background shadow-lg rounded-xl p-4 relative border-y-8 border-y-orange-300">
       {data.map((x) => {
         return (
           <p className="text-5xl text-center" key={x.id}>
-            {x.announcement}
+            {x.title}
           </p>
         );
       })}

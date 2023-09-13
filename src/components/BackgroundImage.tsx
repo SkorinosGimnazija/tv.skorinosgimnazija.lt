@@ -7,12 +7,12 @@ export default function BackgroundImage() {
   const img2 = useRef<HTMLImageElement>(null);
   const visibleImg = useRef<HTMLImageElement>();
 
-  const { data } = useSWR<AnnouncementDto[]>(`/school/public/random-image`, {
+  const { data } = useSWR<RandomImageDto>(`/school/public/random-image`, {
     refreshInterval: minuteToMs(45),
   });
 
   useEffect(() => {
-    if (img1.current == null || img2.current == null || !data) {
+    if (!data || !img1.current || !img2.current) {
       return;
     }
 
@@ -22,7 +22,7 @@ export default function BackgroundImage() {
       visibleImg.current = img1.current;
     }
 
-    visibleImg.current.src = import.meta.env.VITE_STATIC_URL + '/' + data;
+    visibleImg.current.src = import.meta.env.VITE_STATIC_URL + '/' + data.url;
   }, [data]);
 
   const onImageLoad = () => {
