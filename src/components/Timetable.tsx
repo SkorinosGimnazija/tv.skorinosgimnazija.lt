@@ -28,14 +28,14 @@ export default function Timetable() {
 
   return (
     <section className="text-5xl relative">
-      <p className="bg-background text-center shadow-lg rounded-lg font-extrabold p-2 mb-2">
+      <p className="bg-background text-center shadow-lg rounded-lg font-bold p-2 mb-2">
         {data.classtime.number} Pamoka {data.classtime.startTime} - {data.classtime.endTime}
       </p>
       {data.timetable.map((x) => {
         return (
           <div
             key={x.id}
-            className="bg-background shadow-lg mb-1 rounded-lg px-3 py-1 text-[2rem] whitespace-nowrap flex gap-2"
+            className="bg-background shadow-lg mb-1 rounded-lg px-3 py-1 text-[1.75rem] whitespace-nowrap flex gap-2"
           >
             <span className="font-bold">{x.classRoom}</span>
             <div className="overflow-hidden">
