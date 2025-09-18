@@ -18,7 +18,7 @@ export default function App() {
         <div className="col-start-8 row-span-full col-span-full">
           <Timetable />
         </div>
-        <div className="row-start-5 row-span-2 col-span-5">
+        <div className="row-start-5 row-span-2 col-span-6">
           <Events />
         </div>
       </main>

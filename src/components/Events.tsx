@@ -17,11 +17,11 @@ export default function Events() {
       {data.slice(0, MAX_EVENTS_TO_SHOW).map((x) => {
         return (
           <div
-            className="text-3xl bg-background shadow-lg rounded-lg p-2 border-l-8 border-l-green-500"
+            className="text-2xl bg-background shadow-lg rounded-lg p-2 border-l-8 border-l-green-500"
             key={x.id}
           >
             <p className="line-clamp-2">{x.title}</p>
-            <p className="text-2xl">{formatDateTime(x.startDate, x.startDateTime, x.endDate)}</p>
+            <p className="text-xl">{formatDateTime(x.startDate, x.startDateTime, x.endDate)}</p>
           </div>
         );
       })}
