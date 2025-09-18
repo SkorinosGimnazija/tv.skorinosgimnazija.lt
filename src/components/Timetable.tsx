@@ -27,7 +27,7 @@ export default function Timetable() {
   }
 
   return (
-    <section className="text-5xl relative">
+    <section className="text-4xl relative">
       <p className="bg-background text-center shadow-lg rounded-lg font-bold p-2 mb-2">
         {data.classtime.number} Pamoka {data.classtime.startTime} - {data.classtime.endTime}
       </p>
