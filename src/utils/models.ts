@@ -1,22 +1,16 @@
-interface TimetableDto {
-  timetable: { id: number; className: string; classRoom: string }[];
-  classtime: { number: number; startTime: string; endTime: string };
+export interface TimetableDto {
+  roomClasses: { roomId: number; roomName: string; className: string }[]
+  currentClass: { id: number; startTime: string; endTime: string }
 }
 
-interface AnnouncementDto {
-  id: number;
-  title: string;
+export interface EventDto {
+  id: string
+  title: string
+  startDate: string
+  endDate: string
+  allDay: boolean
 }
 
-interface EventDto {
-  id: number;
-  title: string;
-  startDate?: string;
-  endDate?: string;
-  startDateTime?: string;
-  endDateTime?: string;
-}
-
-interface RandomImageDto {
-  url: string;
+export interface RandomImageDto {
+  url: string
 }

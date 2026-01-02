@@ -3,31 +3,31 @@
 @tailwind utilities;
 
 @layer base {
-  body {
-    @apply bg-gray-200 overflow-hidden w-screen h-screen;
-  }
+    body {
+        @apply bg-gray-200 overflow-hidden w-screen h-screen;
+    }
 }
 
 @layer utilities {
-  .text-shadow {
-    @apply drop-shadow-[1px_1px_6px_rgba(0,0,0,1)];
-  }
-
-  .animate-text-overflow {
-    position: relative;
-    animation: leftright 5s infinite alternate ease-in-out;
-  }
-
-  @keyframes leftright {
-    0%,
-    20% {
-      transform: translateX(0);
-      left: 0%;
+    .text-shadow {
+        @apply drop-shadow-[1px_1px_6px_rgba(0,0,0,1)];
     }
-    80%,
-    100% {
-      transform: translateX(-100%);
-      left: 100%;
+
+    .animate-text-overflow {
+        position: relative;
+        animation: leftright 5s infinite alternate ease-in-out;
     }
-  }
+
+    @keyframes leftright {
+        0%,
+        20% {
+            transform: translateX(0);
+            left: 0;
+        }
+        80%,
+        100% {
+            transform: translateX(-100%);
+            left: 100%;
+        }
+    }
 }

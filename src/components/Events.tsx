@@ -1,15 +1,16 @@
-import useSWR from 'swr';
-import { minuteToMs, formatDateTime } from '../utils/lib';
+import type { EventDto } from '@/utils/models.ts'
+import useSWR from 'swr'
+import { minuteToMs, formatDateTime } from '../utils/lib'
 
-const MAX_EVENTS_TO_SHOW = 4;
+const MAX_EVENTS_TO_SHOW = 5
 
 export default function Events() {
-  const { data } = useSWR<EventDto[]>(`/events/public/today`, {
+  const { data } = useSWR<EventDto[]>(`/public/events/now`, {
     refreshInterval: minuteToMs(60),
-  });
+  })
 
   if (!data || data.length === 0) {
-    return null;
+    return null
   }
 
   return (
@@ -21,10 +22,10 @@ export default function Events() {
             key={x.id}
           >
             <p className="line-clamp-2">{x.title}</p>
-            <p className="text-xl">{formatDateTime(x.startDate, x.startDateTime, x.endDate)}</p>
+            <p className="text-xl">{formatDateTime(x.startDate, x.endDate, x.allDay)}</p>
           </div>
-        );
+        )
       })}
     </section>
-  );
+  )
 }
