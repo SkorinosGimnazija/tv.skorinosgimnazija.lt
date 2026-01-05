@@ -20,12 +20,12 @@ export const toLocalTime = (date: string) => {
 }
 
 export const formatDateTime = (startDate: string, endDate: string, allDay: boolean) => {
-  if (!allDay) {
-    return toLocalTime(startDate!)
+  if (startDate === endDate) {
+    return null
   }
 
-  if (startDate === endDate) {
-    return toLocalDate(startDate)
+  if (!allDay) {
+    return toLocalTime(startDate)
   }
 
   return `${toLocalDate(startDate)} - ${toLocalDate(endDate)}`
