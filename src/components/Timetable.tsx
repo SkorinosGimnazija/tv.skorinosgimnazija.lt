@@ -16,10 +16,11 @@ export default function Timetable() {
       }
 
       if (element.clientWidth > element.parentElement!.clientWidth) {
-        element.classList.add('animate-text-overflow')
+        element.classList.add('will-change-transform', 'animate-text-overflow')
+      } else {
+        element.classList.remove('will-change-transform', 'animate-text-overflow')
       }
     }
-    console.log('apply', refs.current?.length)
 
     refs.current = []
   }, [data])
@@ -37,11 +38,11 @@ export default function Timetable() {
         return (
           <div
             key={x.roomId}
-            className="bg-background shadow-lg mb-[0.15rem] p-0 rounded-lg px-3 text-2xl whitespace-nowrap flex gap-2"
+            className="bg-background shadow-lg mb-[0.2rem] p-0 rounded-lg px-3 text-2xl whitespace-nowrap flex gap-2"
           >
             <span className="font-bold">{x.roomName}</span>
             <div className="overflow-hidden">
-              <span className="inline-block will-change-transform" ref={(e) => refs.current.push(e)}>
+              <span className="inline-block" ref={(e) => refs.current.push(e)}>
                 {x.className}
               </span>
             </div>
