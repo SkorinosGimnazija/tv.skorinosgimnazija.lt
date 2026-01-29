@@ -9,7 +9,7 @@ export default function BackgroundImage() {
   const visibleImg = useRef<HTMLImageElement>()
 
   const { data } = useSWR<RandomImageDto>(`/public/school/random-image`, {
-    refreshInterval: minuteToMs(45),
+    refreshInterval: minuteToMs(1),
   })
 
   useEffect(() => {
